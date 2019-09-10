@@ -39,8 +39,14 @@ For each line of input print one line of output with one integer number giving t
 
 在非特殊情况下，状态转移方程为
 $$
-\left\{\ \begin{align}&dp[i][j][k]=\sum_{l}{dp[i-1][l][k-1]}&若j=0\\
-&dp[i][j][k]=\sum_ldp[i-1][l][k]&若j\neq0\end{align}\right.
+\begin{equation}
+\left\{
+\begin{aligned}
+&dp[i][j][k]=\sum_{l}{dp[i-1][l][k-1]}&若j=0\\
+&dp[i][j][k]=\sum_ldp[i-1][l][k]&若j\neq0\\
+\end{aligned}
+\right.
+\end{equation}
 $$
 下面通过一个例子解释前导零和上界这两种情况。
 
@@ -48,8 +54,14 @@ $$
 
 令$A_i$表示第$i$位的上界，对应到达上界的特殊情况的状态转移方程为
 $$
-\left\{\ \begin{align}&dp[i][j][k][到达上界]=\sum_{l<A_{i-1}}{dp[i-1][l][k-1][未到上界]}+dp[i-1][A_{i-1}][k-1][到达上界]&若j=0\\
-&dp[i][j][k][到达上界]=\sum_{l<A_{i-1}}dp[i-1][l][k][未到上界]+dp[i-1][A_{i-1}][k][到达上界]&若j\neq0\end{align}\right.
+\begin{equation}
+\left\{
+\begin{aligned}
+&dp[i][j][k][到达上界]=\sum_{l<A_{i-1}}{dp[i-1][l][k-1][未到上界]}+dp[i-1][A_{i-1}][k-1][到达上界]&若j=0\\
+&dp[i][j][k][到达上界]=\sum_{l<A_{i-1}}dp[i-1][l][k][未到上界]+dp[i-1][A_{i-1}][k][到达上界]&若j\neq0\\
+\end{aligned}
+\right.
+\end{equation}
 $$
 状态转移到第8位时，前7位的状态可以是$0000000$，这是一种合法的状态。但如果第8位也是0，也就是整体状态是$00000000$时，它应该被视为只包含一个$0$：即等价于数字$“0”$。也就是说在最终的结果中需要忽略前导零，于是我们需要为数位恰好为零的情况设计另一种特殊的状态：设当前位为第$i$位，则第$i-1$位为零时转移前导零的状态，其余情况转移普通状态。
 
