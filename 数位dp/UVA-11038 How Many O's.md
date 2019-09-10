@@ -39,10 +39,12 @@ For each line of input print one line of output with one integer number giving t
 
 在非特殊情况下，状态转移方程为
 $$
+\begin{equation}
 \begin{cases}
 dp[i][j][k]=\sum_{l}{dp[i-1][l][k-1]}&若j=0\\
 dp[i][j][k]=\sum_ldp[i-1][l][k]&若j\neq0\\
 \end{cases}
+\end{equation}
 $$
 下面通过一个例子解释前导零和上界这两种情况。
 
