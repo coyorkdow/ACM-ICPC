@@ -36,7 +36,14 @@ For each line of input print one line of output with one integer number giving t
 可以用带上界不带下界的数位dp计算从$0$到$n$的数字共有多少个$0$（用``cal(n)``表示），答案便是``cal(B)-cal(A-1)``。特别地若$n<0$则``cal(n)``返回值为$0$。
 
 状态设计为$dp[i][j][k][m(0/1)][n(0/1)]$，表示第$i$位（当前状态下的最高位）的值是$j$，且一共有$k$位为零的总数。$m$和$n$均为布尔量，分别表示是否是前导零和是否是上界，这对应了两种特殊情况。
-
+$$
+\begin{equation}
+\begin{cases}
+dp[i][j][k]=\sum_{l}{dp[i-1][l][k-1]}& j=0 \\
+dp[i][j][k]=\sum_ldp[i-1][l][k]& j\neq0 \\
+\end{cases}
+\end{equation}
+$$
 在非特殊情况下，状态转移方程为
 $$
 \begin{equation}
