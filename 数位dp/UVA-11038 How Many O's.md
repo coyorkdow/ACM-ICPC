@@ -1,3 +1,15 @@
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 A Benedict monk No. 16 writes down the decimal representations of all natural numbers between and including m and n, m ≤ n. How many 0’s will he write down?
 
 **Input**
@@ -39,12 +51,10 @@ For each line of input print one line of output with one integer number giving t
 
 在非特殊情况下，状态转移方程为
 $$
-
 \begin{cases}
 dp[i][j][k]=\sum_{l}{dp[i-1][l][k-1]}& j=0 \\
 dp[i][j][k]=\sum_ldp[i-1][l][k]& j\neq0 \\
 \end{cases}
-
 $$
 下面通过一个例子解释前导零和上界这两种情况。
 
