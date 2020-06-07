@@ -11,7 +11,7 @@ Here is a square matrix of$\ n∗n\ $, each lattice has its value ($\ n$ must be
 
 Now I can choose $m$ squares to build palaces, The beauty of each palace is equal to the digital sum of the value of the land which it is located. Such as (the land value is $123213123213$,the beautiful values of the palace located on it is $1+2+3+2+1+3=12$) ($666$ -> $18$) ($456$ ->$15$)
 
-Next, we ask p*p* times to the sum of the beautiful values of the palace in the matrix where the lower left grid$(x_1,y_1)$, the upper right square $(x_2,y_2)$.
+Next, we ask $p$ times to the sum of the beautiful values of the palace in the matrix where the lower left grid$(x_1,y_1)$, the upper right square $(x_2,y_2)$.
 
 ### Input
 
