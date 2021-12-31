@@ -38,7 +38,7 @@ class max_flow {
         used += add;
         E[nowa].cap -= add;
         E[nowa ^ 1].cap += add;
-        if (used - flow <= eps) break;
+        if (fabs(used - flow) <= eps) break;
       }
     }
     return used;
